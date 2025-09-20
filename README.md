@@ -131,17 +131,17 @@ ts-junit2json changes the structure of some tags for simpler and more consistent
 
 # CLI
 ```bash
-npx junit2json junit.xml
+npx junit2json junit.xml|'-'
 
 # with full options
-npx junit2json -p -f system-out,system-err junit.xml
+npx junit2json -p -f system-out,system-err junit.xml|'-'
 ```
 
 ```
 junit2json - Convert JUnit XML format to JSON
 
 Positionals:
-  path  JUnit XML path                                                  [string]
+  path  JUnit XML path (use '-' for stdin)                             [string]
 
 Options:
       --help                        Show help                          [boolean]
@@ -150,8 +150,11 @@ Options:
   -f, --filter-tags                 Filter XML tag names                [string]
 
 Examples:
-  cli.js -p -f system-out,system-err        Output pretty JSON with filter
-  junit.xml                                 <system-out> and <system-err> tags.
+  # Output pretty JSON with filter <system-out> and <system-err> tags.
+  npx junit2json -p -f system-out,system-err junit.xml
+
+  # Pipe node --test into junit2json
+  node --test --test-reporter=junit ... | npx junit2json -p -
 ```
 
 ## CLI with `jq` examples
