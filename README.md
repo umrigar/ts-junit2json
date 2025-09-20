@@ -131,10 +131,10 @@ ts-junit2json changes the structure of some tags for simpler and more consistent
 
 # CLI
 ```bash
-npx junit2json junit.xml|'-'
+npx junit2json junit.xml
 
 # with full options
-npx junit2json -p -f system-out,system-err junit.xml|'-'
+npx junit2json -p -f system-out,system-err junit.xml
 ```
 
 ```
@@ -147,13 +147,13 @@ Options:
       --help                        Show help                          [boolean]
       --version                     Show version number                [boolean]
   -p, --pretty                      Output pretty JSON[boolean] [default: false]
-  -f, --filter-tags                 Filter XML tag names                [string]
+  -f, --filter-tags                 Filter XML tag names               [string]
 
 Examples:
   # Output pretty JSON with filter <system-out> and <system-err> tags.
   npx junit2json -p -f system-out,system-err junit.xml
 
-  # Pipe node --test into junit2json
+  # Pipe node --test junit output into junit2json
   node --test --test-reporter=junit ... | npx junit2json -p -
 ```
 
